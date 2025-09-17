@@ -1,6 +1,5 @@
 # CS 635 Project 1: Adaptive Library Management System
 
-## Contributors: 
-Leo Paredes, Brandon Reynolds
+## Contributors: Leo Paredes, Brandon Reynolds
 
-## TBD
+## More information coming soon
