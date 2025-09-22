@@ -12,7 +12,7 @@ class Transaction(X)
     
 
 
-class CheckoutOut(Transaction):
+class CheckedOut(Transaction):
     def __init__(self, transaction_num, time):
 
 class CheckedIn(Transaction):
