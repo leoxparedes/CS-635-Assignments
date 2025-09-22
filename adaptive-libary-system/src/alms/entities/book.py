@@ -27,7 +27,7 @@ class Book(BaseEntity, Searchable):
     def get_available_copies(self):
         return self._available_copies
 
-    # Borrow / return logic kept very simple
+    # Borrow / return logic
     def is_available(self):
         return self._available_copies > 0
 

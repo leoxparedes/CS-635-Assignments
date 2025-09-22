@@ -2,7 +2,6 @@ import pytest
 from alms.entities.book import Book
 from alms.entities.user import User
 
-
 def test_book_basic_fields_and_availability():
     book = Book("123", "Title", "Author", total_copies=2)
     assert book.get_isbn() == "123"

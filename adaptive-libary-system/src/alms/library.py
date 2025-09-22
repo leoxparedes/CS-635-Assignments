@@ -30,7 +30,7 @@ class Library:
         text = str(text)
         return [u for u in self._users_by_id.values() if u.matches(text)]
 
-    # Convenience borrow/return methods (useful for tests and main)
+    # Borrow/return methods 
     def borrow_book(self, user_id, isbn):
         from .entities.transaction import BorrowTransaction
 
