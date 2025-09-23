@@ -1,0 +1,32 @@
+{
+  "books": [
+    {
+      "isbn": "111",
+      "title": "Clean Code",
+      "author": "Robert Martin",
+      "total_copies": 2,
+      "available_copies": 2
+    },
+    {
+      "isbn": "222",
+      "title": "The Pragmatic Programmer",
+      "author": "Andrew Hunt",
+      "total_copies": 1,
+      "available_copies": 1
+    }
+  ],
+  "users": [
+    {
+      "user_id": "u1",
+      "name": "Alice",
+      "email": "alice@example.com",
+      "borrowed_isbns": []
+    },
+    {
+      "user_id": "u2",
+      "name": "Bob",
+      "email": "bob@example.com",
+      "borrowed_isbns": []
+    }
+  ]
+}
