@@ -1,8 +1,8 @@
 import pytest
-from alms.library import Library
-from alms.entities.book import Book
-from alms.entities.user import User
-from alms.exceptions import BookNotAvailableError
+from src.alms.library import Library
+from src.alms.entities.book import Book
+from src.alms.entities.user import User
+from src.alms.exceptions import BookNotAvailableError
 
 
 @pytest.fixture()

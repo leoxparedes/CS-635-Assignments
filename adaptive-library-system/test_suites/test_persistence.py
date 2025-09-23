@@ -1,7 +1,7 @@
-from alms.library import Library
-from alms.entities.book import Book
-from alms.entities.user import User
-from alms.persistence.file_manager import FileManager
+from src.alms.library import Library
+from src.alms.entities.book import Book
+from src.alms.entities.user import User
+from src.alms.persistence.file_manager import FileManager
 
 
 def test_save_and_load_roundtrip(tmp_path):

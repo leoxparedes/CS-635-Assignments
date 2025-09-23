@@ -4,7 +4,7 @@
 
 # Getting started...
 At the root directory enter the following in the terminal window.
-1) python -m .venv
+1) python -m venv .venv
 2) .venv\Scripts\activate
 3) pip install pytest
 
