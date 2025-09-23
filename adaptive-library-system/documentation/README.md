@@ -16,8 +16,6 @@ All tests for ALMS can be found in "test_suites/". To run tests, enter "pytest" 
 A demo of the ALMS can be found in "main.py". To execute the demo, enter "python main.py" in the terminal window. 
 
 # UML Diagram 
-## UML Diagram
-
 ```mermaid
 %% ALMS — UML (Mermaid class diagram)
 classDiagram
