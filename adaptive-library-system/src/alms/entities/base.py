@@ -1,5 +1,5 @@
+ # Simple base class that gives every entity an identifier and a to_dict helper
 class BaseEntity:
-    """Simple base class that gives every entity an identifier and a to_dict helper."""
 
     def __init__(self, identifier):
         self._identifier = str(identifier)
