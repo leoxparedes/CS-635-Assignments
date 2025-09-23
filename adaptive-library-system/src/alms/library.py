@@ -2,7 +2,7 @@ from .exceptions import BookNotFoundError, UserNotFoundError
 from .entities.book import Book
 from .entities.user import User
 
-
+# Library class that is used to add and search for books
 class Library:
     def __init__(self):
         self._books_by_isbn = {}
@@ -43,7 +43,7 @@ class Library:
         t = ReturnTransaction(user_id, isbn)
         return t.process(self)
 
-    # Persistence helpers
+    # Persistence helpers for saving and retrieving objects (books and users)
     def to_dict(self):
         return {
             "books": [b.to_dict() for b in self._books_by_isbn.values()],

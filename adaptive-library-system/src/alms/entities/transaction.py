@@ -6,7 +6,7 @@ from ..exceptions import (
     TransactionError,
 )
 
-
+# Transaction class that utilizes abtract base class library for borrow and return methods
 class Transaction(ABC):
     def __init__(self, user_id, isbn):
         self.user_id = str(user_id)
@@ -16,7 +16,7 @@ class Transaction(ABC):
     def process(self, library):
         pass
 
-
+# Borrow method that checks for user, book, and amount of books before checking out book
 class BorrowTransaction(Transaction):
     def process(self, library):
         user = library.get_user(self.user_id)
@@ -33,7 +33,7 @@ class BorrowTransaction(Transaction):
         user.borrow_isbn(self.isbn)
         return True
 
-
+# Retrun method that checks for user and book exists before checking in book
 class ReturnTransaction(Transaction):
     def process(self, library):
         user = library.get_user(self.user_id)

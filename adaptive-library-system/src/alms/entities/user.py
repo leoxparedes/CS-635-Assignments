@@ -10,6 +10,7 @@ class User(BaseEntity, Searchable):
         self._email = email
         self._borrowed_isbns = []
 
+    # Encapsulated getters
     def get_user_id(self):
         return self._user_id
 
@@ -22,6 +23,7 @@ class User(BaseEntity, Searchable):
     def get_borrowed_isbns(self):
         return list(self._borrowed_isbns)
 
+    # Borrow / return and checking availabiltiy logic
     def borrow_isbn(self, isbn):
         self._borrowed_isbns.append(str(isbn))
 
@@ -40,6 +42,7 @@ class User(BaseEntity, Searchable):
             or text in self._email.lower()
         )
 
+    # Method for setting a new user object in dictionary
     def to_dict(self):
         return {
             "user_id": self._user_id,
@@ -48,6 +51,7 @@ class User(BaseEntity, Searchable):
             "borrowed_isbns": list(self._borrowed_isbns),
         }
 
+    # Static method for getting user and their borrowed copies from dictionary
     @staticmethod
     def from_dict(data):
         user = User(data.get("user_id"), data.get("name"), data.get("email"))

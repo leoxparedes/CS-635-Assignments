@@ -11,7 +11,18 @@ def test_book_basic_fields_and_availability():
     assert book.get_available_copies() == 2
     assert book.is_available() is True
 
+def test_book_basic_fields_and_no_availability():
+    book = Book("123", "Title", "Author", total_copies=2)
+    assert book.get_isbn() == "123"
+    assert book.get_title() == "Title"
+    assert book.get_author() == "Author"
+    assert book.get_total_copies() == 2
+    assert book.borrow_one() is True
+    assert book.borrow_one() is True
+    assert book.get_available_copies() == 0
+    assert book.is_available() is False
 
+    
 def test_book_borrow_and_return_simple():
     book = Book("123", "T", "A", total_copies=1)
     assert book.borrow_one() is True
@@ -19,10 +30,26 @@ def test_book_borrow_and_return_simple():
     assert book.return_one() is True
     assert book.is_available() is True
 
+def test_book_borrow_and_return_advanced():
+    book = Book("900", "Linux 101", "Linus Torvalds", total_copies=2)
+    assert book.borrow_one() is True
+    assert book.is_available() is True
+    assert book.borrow_one() is True
+    assert book.is_available() is False
+    assert book.return_one() is True
+    assert book.is_available() is True
+
 
 def test_user_basic_and_search():
-    user = User("u1", "Alice Example", "alice@example.com")
+    user = User("u1", "Alice Carter", "alice@example.com")
     user.borrow_isbn("123")
     assert "123" in user.get_borrowed_isbns()
     assert user.matches("alice") is True
+    assert user.return_isbn("123") is True
+
+def test_user_basic_and_search_not_found():
+    user = User("u1", "Bob Smith", "bob@example.com")
+    user.borrow_isbn("123")
+    assert "123" in user.get_borrowed_isbns()
+    assert user.matches("alice") is False
     assert user.return_isbn("123") is True

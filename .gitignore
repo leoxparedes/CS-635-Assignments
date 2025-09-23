@@ -21,4 +21,4 @@ __pycache__/
 Thumbs.db
 
 # Test output file
-./adaptive-library-system/alms_data.json
+./adaptive-library-system/alms_data.json/

@@ -27,7 +27,7 @@ class Book(BaseEntity, Searchable):
     def get_available_copies(self):
         return self._available_copies
 
-    # Borrow / return logic
+    # Borrow / return and checking availabiltiy logic
     def is_available(self):
         return self._available_copies > 0
 
@@ -52,6 +52,7 @@ class Book(BaseEntity, Searchable):
             or text in self._author.lower()
         )
 
+    # Method for setting a new book object in dictionary
     def to_dict(self):
         return {
             "isbn": self._isbn,
@@ -61,6 +62,7 @@ class Book(BaseEntity, Searchable):
             "available_copies": self._available_copies,
         }
 
+    # Static method for getting book and available copies from dictionary
     @staticmethod
     def from_dict(data):
         book = Book(
