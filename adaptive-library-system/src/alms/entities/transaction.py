@@ -1,24 +1,28 @@
 from abc import ABC, abstractmethod
+from typing import TYPE_CHECKING
 from ..exceptions import (
     BookNotFoundError,
     UserNotFoundError,
     BookNotAvailableError,
-    TransactionError,
+    TransactionError
 )
+
+if TYPE_CHECKING:
+    from ..library import Library
 
 # Transaction class that utilizes abtract base class library for borrow and return methods
 class Transaction(ABC):
-    def __init__(self, user_id, isbn):
-        self.user_id = str(user_id)
-        self.isbn = str(isbn)
+    def __init__(self, user_id: str, isbn: str) -> None:
+        self.user_id: str = str(user_id)
+        self.isbn: str = str(isbn)
 
     @abstractmethod
-    def process(self, library):
+    def process(self, library: "Library") -> bool:
         pass
 
 # Borrow method that checks for user, book, and amount of books before checking out book
 class BorrowTransaction(Transaction):
-    def process(self, library):
+    def process(self, library: "Library") -> bool:
         user = library.get_user(self.user_id)
         if user is None:
             raise UserNotFoundError("User was not found.")
@@ -35,7 +39,7 @@ class BorrowTransaction(Transaction):
 
 # Retrun method that checks for user and book exists before checking in book
 class ReturnTransaction(Transaction):
-    def process(self, library):
+    def process(self, library: "Library") -> bool:
         user = library.get_user(self.user_id)
         if user is None:
             raise UserNotFoundError("User was not found.")
